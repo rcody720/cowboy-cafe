@@ -1,18 +1,27 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: TexasTripleBurger.cs
+
+* Purpose: A class representing the Texas Triple Burger entree
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Texas Triple Burger
+    /// A class representing the Texas Triple Burger entree
     /// </summary>
-    public class TexasTripleBurger
+    public class TexasTripleBurger : Entree 
     {
         /// <summary>
         /// The Price of the entree
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 6.45; }
         }
@@ -20,7 +29,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the entree
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 698; }
         }
@@ -78,7 +87,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The special instructions for making the entree
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

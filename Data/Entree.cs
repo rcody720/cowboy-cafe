@@ -1,12 +1,10 @@
 ﻿/*
 
-* Author: Nathan Bean
+* Author: Cody Reeves
 
-* Edited By: Cody Reeves 
+* Class name: Entree.cs
 
-* Class name: Side.cs
-
-* Purpose: A base class representing the sides
+* Purpose: A base class representing the entrees
 */
 
 using System;
@@ -16,17 +14,12 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A base class representing a side
+    /// A base class representing the entrees
     /// </summary>
-    public abstract class Side
+    public abstract class Entree
     {
         /// <summary>
-        /// Gets the size of the entree
-        /// </summary>
-        public virtual Size Size { get; set; }
-
-        /// <summary>
-        /// Gets the price of the side
+        /// Gets the price of the entree
         /// </summary>
         public abstract double Price { get; }
 
@@ -34,5 +27,10 @@ namespace CowboyCafe.Data
         /// Gets the calories of the entree
         /// </summary>
         public abstract uint Calories { get; }
+
+        /// <summary>
+        /// Gets the special instructions 
+        /// </summary>
+        public abstract List<string> SpecialInstructions { get; }
     }
 }
