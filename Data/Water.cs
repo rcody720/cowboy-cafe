@@ -2,9 +2,9 @@
 
 * Author: Cody Reeves
 
-* Class name: CowboyCoffee.cs
+* Class name: Water.cs
 
-* Purpose: A class representing the Cowboy Coffee drink
+* Purpose: A class representing a water drink
 
 */
 
@@ -15,9 +15,9 @@ using System.Text;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Cowboy Coffee Drink
+    /// A class representing a water drink
     /// </summary>
-    public class CowboyCoffee : Drink
+    public class Water : Drink
     {
         /// <summary>
         /// Gets the price 
@@ -29,11 +29,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 0.60;
+                        return 0.12;
                     case Size.Medium:
-                        return 1.10;
+                        return 0.12;
                     case Size.Large:
-                        return 1.60;
+                        return 0.12;
                     default:
                         throw new NotImplementedException();
                 }
@@ -50,11 +50,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 3;
+                        return 0;
                     case Size.Medium:
-                        return 5;
+                        return 0;
                     case Size.Large:
-                        return 7;
+                        return 0;
                     default:
                         throw new NotImplementedException();
                 }
@@ -62,19 +62,9 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// Gets if it should be decaf
+        /// Gets if it should have a lemon
         /// </summary>
-        public bool Decaf { get; set; }
-
-        /// <summary>
-        /// Gets if there should be room for cream
-        /// </summary>
-        public bool RoomForCream { get; set; }
-
-        /// <summary>
-        /// Gets if there should be Ice
-        /// </summary>
-        public override bool Ice { get; set; } = false;
+        public bool Lemon { get; set; } = false;
 
         /// <summary>
         /// Gets the special instructions
@@ -85,8 +75,8 @@ namespace CowboyCafe.Data
             {
                 List<string> instructions = new List<string>();
 
-                if (Ice) { instructions.Add("add ice"); }
-                if (RoomForCream) { instructions.Add("add room for cream"); }
+                if (Lemon) { instructions.Add("add lemon"); }
+                if (!Ice) { instructions.Add("hold ice"); }
                 return instructions;
             }
         }
