@@ -69,7 +69,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets if there should be room for cream
         /// </summary>
-        public bool RoomForCream { get; set; }
+        public bool RoomForCream { get; set; } = false;
 
         /// <summary>
         /// Gets if there should be Ice
@@ -85,8 +85,8 @@ namespace CowboyCafe.Data
             {
                 List<string> instructions = new List<string>();
 
-                if (Ice) { instructions.Add("add ice"); }
-                if (RoomForCream) { instructions.Add("add room for cream"); }
+                if (Ice) { instructions.Add("Add Ice"); }
+                if (RoomForCream) { instructions.Add("Room for Cream"); }
                 return instructions;
             }
         }
