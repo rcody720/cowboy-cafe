@@ -11,6 +11,10 @@
             <Setter Property="Height" Value="50px"/>
             <Setter Property="FontSize" Value="18"/>
         </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Background" Value="White"/>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -43,5 +47,11 @@
             <Button Name="AddTexasTeaButton">Texas Tea</Button>
             <Button Name="AddWaterButton">Water</Button>
         </StackPanel>
+        <StackPanel Grid.Column="3">
+            <TextBlock TextAlignment="Center">Order</TextBlock>
+            <ListView Name="OrderListView">
+            </ListView>
+        </StackPanel>
+       
     </Grid>
 </UserControl>
