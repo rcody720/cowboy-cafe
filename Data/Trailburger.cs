@@ -79,6 +79,10 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Creates a readable string
+        /// </summary>
+        /// <returns>The formatted string</returns>
         public override string ToString()
         {
             return "Trail Burger";
