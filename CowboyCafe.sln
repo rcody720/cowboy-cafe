@@ -12,12 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{B46DD546-8E9E-408A-8A59-141A196C9DA9}"
-	ProjectSection(SolutionItems) = preProject
-		..\Downloads\CowboyCafe.pdf = ..\Downloads\CowboyCafe.pdf
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PointOfScale", "PointOfScale\PointOfScale.csproj", "{84F56DF9-B3D8-40E5-90BF-5E8382E15972}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfScale", "PointOfScale\PointOfScale.csproj", "{84F56DF9-B3D8-40E5-90BF-5E8382E15972}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,9 +35,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{B46DD546-8E9E-408A-8A59-141A196C9DA9} = {938FDA09-9346-4837-A3AE-EA1B3485B73F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EF0ECCFA-B4C0-4862-B136-C797D24E1A41}

@@ -66,7 +66,7 @@ namespace CowboyCafe.Data
         /// <returns>The formatted string</returns>
         public override string ToString()
         {
-            return $"{Size} Pan De Campo";
+            return $"{Size} Pan de Campo";
         }
     }
 }

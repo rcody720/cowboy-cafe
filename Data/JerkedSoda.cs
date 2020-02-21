@@ -86,7 +86,27 @@ namespace CowboyCafe.Data
         /// <returns>The formatted string</returns>
         public override string ToString()
         {
-            return $"{Size} {Flavor} Jerked Soda";
+            if (Flavor == SodaFlavor.BirchBeer)
+            {
+                return $"{Size} Birch Beer Jerked Soda";
+            }
+            else if (Flavor == SodaFlavor.CreamSoda)
+            {
+                return $"{Size} Cream Soda Jerked Soda";
+            }
+            else if (Flavor == SodaFlavor.OrangeSoda)
+            {
+                return $"{Size} Orange Soda Jerked Soda";
+            }
+            else if (Flavor == SodaFlavor.RootBeer)
+            {
+                return $"{Size} Root Beer Jerked Soda";
+            }
+            else
+            {
+                return $"{Size} Sarsparilla Jerked Soda";
+            }
+            
         }
     }
 }

@@ -109,7 +109,15 @@ namespace CowboyCafe.Data
         /// <returns>The formatted string</returns>
         public override string ToString()
         {
-            return $"{Size} Texas Tea";
+            if (Sweet)
+            {
+                return $"{Size} Texas Sweet Tea";
+            }
+            else
+            {
+                return $"{Size} Texas Plain Tea";
+            }
+            
         }
     }
 }

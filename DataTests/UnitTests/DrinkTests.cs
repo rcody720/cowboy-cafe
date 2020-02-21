@@ -6,7 +6,6 @@ using CowboyCafe.Data;
 
 namespace CowboyCafe.DataTests
 {
-    /*
     public class DrinkTests
     {
         [Theory]
@@ -20,6 +19,5 @@ namespace CowboyCafe.DataTests
             Assert.IsAssignableFrom<Drink>(drink);
         }
     }
-    */
 }
 
