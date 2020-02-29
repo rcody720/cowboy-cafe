@@ -35,7 +35,7 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
-           
+            AddAngryChickenButton.Click += OnAddAngryChickenButtonClicked;
             AddCowpokeChiliButton.Click += OnAddCowpokeChiliButtonClicked;
             AddDakotaDoubleBurgerButton.Click += OnAddDakotaDoubleBurgerButtonClicked;
             AddPecosPulledPorkButton.Click += OnAddPecosPulledPorkButtonClicked;

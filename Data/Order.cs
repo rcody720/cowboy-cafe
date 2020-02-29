@@ -26,7 +26,7 @@ namespace CowboyCafe.Data
             }
         }
 
-        public uint OrderNumber { get; }
+        public uint OrderNumber => lastOrderNumber++;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

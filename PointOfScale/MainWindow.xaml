@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1480">
+        Title="MainWindow" Height="800" Width="1480">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
