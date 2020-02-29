@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CowboyCafe.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,24 @@ namespace PointOfSale
         public OrderControl()
         {
             InitializeComponent();
+            ItemSelectionButton.Click += OnItemSelectionButtonClicked;
+            CancelOrderButton.Click += OnCancelOrderButtonClicked;
+            CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
         }
+
+        void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
+        {
+            //Not Implemented Yet
+        }
+
+        void OnCancelOrderButtonClicked(object sender, RoutedEventArgs e)
+        {           
+            this.DataContext = new Order();
+        }
+
+        void OnCompleteOrderButtonClicked(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = new Order();
+        }    
     }
 }

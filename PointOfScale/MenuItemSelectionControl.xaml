@@ -10,7 +10,7 @@
         <Style TargetType="Button">
             <Setter Property="Height" Value="50px"/>
             <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Width" Value="175px"/>
+            <Setter Property="Width" Value="200px"/>
             <Setter Property="Margin" Value="0 15"/>
         </Style>
         <Style TargetType="TextBlock">

@@ -53,7 +53,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the entree should be served with bread
         /// </summary>
-        public bool Bread { get; set; } = false;
+        public bool Bread { get; set; } = true;
 
         /// <summary>
         /// The Special Instructions for making the entree

@@ -18,8 +18,8 @@
             <RowDefinition/>
             <RowDefinition Height="20px"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Background="White" FontSize="30" TextAlignment="Center">Order</TextBlock>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <TextBlock Grid.Row="0" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" Background="White" FontSize="30" TextAlignment="Center"/>
+        <ListBox Name="OrderSummary" Grid.Row="1" ItemsSource="{Binding Path=Items}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -33,7 +33,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" FontSize="15" Text="{Binding}"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" FontSize="15" Text="{Binding Path=Price, StringFormat=c}"/>
-                        <!--<TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=SpecialInstructions}"/>-->
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Path=SpecialInstructions}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>
