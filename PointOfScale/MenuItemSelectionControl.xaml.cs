@@ -2,7 +2,7 @@
 
 * Author: Cody Reeves
 
-* Class name: OrderControl.xaml.cs
+* Class name: MenuItemSelectionControl.xaml.cs
 
 * Purpose: A class that controls the backend of the user interface
 
@@ -25,7 +25,7 @@ using CowboyCafe.Data;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for OrderControl.xaml
+    /// Interaction logic for MenuItemSelectionControl.xaml
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {

@@ -35,6 +35,9 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
-        public List<string> SpecialInstructions { get; }
+        /// <summary>
+        /// Gets the special instructions for cooking
+        /// </summary>
+        public abstract List<string> SpecialInstructions { get; }
     }
 }

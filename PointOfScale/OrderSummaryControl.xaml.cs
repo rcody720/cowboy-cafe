@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: OrderSummaryContorl.xaml.cs
+
+* Purpose: A class that controls the backend of the user interface
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +28,13 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderSummaryControl : UserControl
     {
+        /// <summary>
+        /// Constructor that initializes the components
+        /// </summary>
         public OrderSummaryControl()
         {
             InitializeComponent();
+            
         }
     }
 }

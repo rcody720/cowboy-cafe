@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: IOrderItem.cs
+
+* Purpose: An interface to represent an ordered item
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

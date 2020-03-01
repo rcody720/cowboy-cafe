@@ -1,18 +1,43 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: Order.cs
+
+* Purpose: A class that represents a person's order
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class that represents a person's order
+    /// </summary>
     public class Order : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Holds the last order's number
+        /// </summary>
         private uint lastOrderNumber;
 
+        /// <summary>
+        /// A list of the ordered items
+        /// </summary>
         private List<IOrderItem> items = new List<IOrderItem>();
 
+        /// <summary>
+        /// An IEnumerable of the items
+        /// </summary>
         public IEnumerable<IOrderItem> Items => items.ToArray();
 
+        /// <summary>
+        /// Gets the subtotal for the order
+        /// </summary>
         public double Subtotal
         {
             get
@@ -26,10 +51,20 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// The current order number
+        /// </summary>
         public uint OrderNumber => lastOrderNumber++;
 
+        /// <summary>
+        /// An event handler for when a property is changed
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Adds to the list of items
+        /// </summary>
+        /// <param name="item">The IOrderItem you want to add</param>
         public void Add(IOrderItem item)
         {
             items.Add(item);
@@ -38,6 +73,10 @@ namespace CowboyCafe.Data
 
         }
 
+        /// <summary>
+        /// Removes from the list of items
+        /// </summary>
+        /// <param name="item">The IOrderItem you want to remove</param>
         public void Remove(IOrderItem item)
         {
             items.Remove(item);

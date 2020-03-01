@@ -61,6 +61,12 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
+        /// Implementation of the SpecialInstructions property
+        /// so that it can be added to the order
+        /// </summary>
+        public override List<string> SpecialInstructions => new List<string>();
+
+        /// <summary>
         /// Creates a readable string
         /// </summary>
         /// <returns>The formatted string</returns>
