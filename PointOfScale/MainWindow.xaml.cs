@@ -1,4 +1,12 @@
-﻿using System;
+/*
+* Author: Cody Reeves
+*
+* Class name: MainWindow.xaml.cs
+*
+* Purpose: A class that controls the backend of the user interface
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +29,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes components and the Data Context
+        /// <summary>
         public MainWindow()
         {
             InitializeComponent();
