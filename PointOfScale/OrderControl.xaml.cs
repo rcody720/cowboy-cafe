@@ -58,6 +58,7 @@ namespace PointOfSale
         void OnCancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {           
             this.DataContext = new Order();
+            
         }
 
         /// <summary>

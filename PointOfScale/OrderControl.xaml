@@ -5,13 +5,24 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight= "800" d:DesignWidth="1480">
+    
     <Grid>
-        <Grid.RowDefinitions>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Button Name="ItemSelectionButton"  FontSize="18" Margin="30" Padding="75 20"  Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
-            <Button Name="CancelOrderButton" FontSize="18" Margin="30" Padding="75 20" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
-        <Button Name="CompleteOrderButton" FontSize="18" Margin="30" Padding="75 20" HorizontalAlignment="Right">Complete Order</Button>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Name="ItemSelectionButton"  FontSize="18" Margin="65 30 30 30" Padding="75 20"  Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
+                <Button Name="CancelOrderButton" FontSize="18" Margin="30" Padding="75 20" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
+                <Button Name="CompleteOrderButton" FontSize="18" Margin="30 30 65 30" Padding="75 20" HorizontalAlignment="Right">Complete Order</Button>
+            </Grid>
+            <local:MenuItemSelectionControl Grid.Column="0"/>
+        </StackPanel>
+        <local:OrderSummaryControl Grid.Column="1"/>
     </Grid>
 </UserControl>

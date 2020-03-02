@@ -6,15 +6,7 @@
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1480">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="300"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-            <local:OrderControl Grid.Column="0"/>
-            <local:MenuItemSelectionControl Grid.Column="0"/>
-        </StackPanel> 
-        <local:OrderSummaryControl Grid.Column="1"/>
-    </Grid>
+    
+    <local:OrderControl/>
+    
 </Window>
