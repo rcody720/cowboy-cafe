@@ -19,7 +19,7 @@
                 </Grid.RowDefinitions>
                 <Button Name="ItemSelectionButton"  FontSize="18" Margin="65 30 30 30" Padding="75 20"  Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
                 <Button Name="CancelOrderButton" FontSize="18" Margin="30" Padding="75 20" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
-                <Button Name="CompleteOrderButton" FontSize="18" Margin="30 30 65 30" Padding="75 20" HorizontalAlignment="Right">Complete Order</Button>
+                <Button Name="CompleteOrderButton" FontSize="18" Margin="30 30 50 30" Padding="75 20" HorizontalAlignment="Right">Complete Order</Button>
             </Grid>
             <local:MenuItemSelectionControl Grid.Column="0"/>
         </StackPanel>
