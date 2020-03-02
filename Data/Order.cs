@@ -23,7 +23,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Holds the last order's number
         /// </summary>
-        private uint lastOrderNumber;
+        private static uint lastOrderNumber;
 
         /// <summary>
         /// A list of the ordered items
