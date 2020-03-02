@@ -15,7 +15,6 @@
         </Style>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="30"/>
-            <Setter Property="Background" Value="White"/>
         </Style>
     </UserControl.Resources>
     <Grid>

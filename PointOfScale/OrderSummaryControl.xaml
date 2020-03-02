@@ -9,17 +9,16 @@
     <UserControl.Resources>
         <Style TargetType="ListBoxItem">
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-            <Setter Property="Padding" Value="0 5"/>
         </Style>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
-            <RowDefinition Height="20px"/>
+            <RowDefinition Height="30px"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" Background="White" FontSize="30" TextAlignment="Center"/>
-        <ListBox Name="OrderSummary" Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <TextBlock Grid.Row="0" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" FontSize="30" TextAlignment="Center"/>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -38,13 +37,13 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Grid Grid.Row="2" Height="20px">
+        <Grid Grid.Row="2" Height="30px">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="75"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Height="20px" Grid.Column="0" Background="White">Subtotal</TextBlock>
-            <TextBox Height="20px" Grid.Column="1" Text="{Binding Mode=OneWay, Path=Subtotal, StringFormat=c}"/>
+            <TextBlock FontSize="18" Height="30px" Grid.Column="0">Subtotal</TextBlock>
+            <TextBox FontSize="18" Height="30px" Grid.Column="1" Text="{Binding Mode=OneWay, Path=Subtotal, StringFormat=c}"/>
         </Grid>
     </Grid>
 </UserControl>

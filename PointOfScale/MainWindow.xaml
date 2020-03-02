@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1480">
-    
+
     <local:OrderControl/>
-    
 </Window>

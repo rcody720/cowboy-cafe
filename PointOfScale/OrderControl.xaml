@@ -6,6 +6,12 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight= "800" d:DesignWidth="1480">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Padding" Value="75 20"/>
+        </Style>
+    </UserControl.Resources>
     
     <Grid>
         <Grid.ColumnDefinitions>
@@ -17,9 +23,9 @@
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button Name="ItemSelectionButton"  FontSize="18" Margin="65 30 30 30" Padding="75 20"  Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
-                <Button Name="CancelOrderButton" FontSize="18" Margin="30" Padding="75 20" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
-                <Button Name="CompleteOrderButton" FontSize="18" Margin="30 30 50 30" Padding="75 20" HorizontalAlignment="Right">Complete Order</Button>
+                <Button Name="ItemSelectionButton" Margin="65 30 30 30" Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
+                <Button Name="CancelOrderButton" Margin="30" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
+                <Button Name="CompleteOrderButton" Margin="30 30 50 30" HorizontalAlignment="Right">Complete Order</Button>
             </Grid>
             <local:MenuItemSelectionControl Grid.Column="0"/>
         </StackPanel>
