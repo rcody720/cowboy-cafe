@@ -21,6 +21,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -28,7 +29,7 @@ namespace PointOfSale
     /// Interaction logic for MenuItemSelectionControl.xaml
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
-    {
+    {       
         /// <summary>
         /// Initializes the components and and assigns click event handler
         /// </summary>
@@ -51,13 +52,13 @@ namespace PointOfSale
             AddTexasTeaButton.Click += OnAddTexasTeaButtonClicked;
             AddWaterButton.Click += OnAddWaterButtonClicked;
         }
-
+ 
         /// <summary>
         /// Click event handler for Angry Chicken Button
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddAngryChickenButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddAngryChickenButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {              
@@ -70,11 +71,17 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-         void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddCowpokeChiliButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data)
             {
-                data.Add(new CowpokeChili());
+                var entree = new CowpokeChili();
+                var screen = new CustomizeCowpokeChili();
+                screen.DataContext = entree;
+                data.Add(entree);
+                orderControl.SwapScreen(screen);
             }
         }
 
@@ -83,7 +90,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddDakotaDoubleBurgerButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddDakotaDoubleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -96,7 +103,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddPecosPulledPorkButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -109,7 +116,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddRustlersRibsButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddRustlersRibsButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -122,7 +129,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddTexasTripleBurgerButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddTexasTripleBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -135,7 +142,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddTrailBurgerButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddTrailBurgerButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -148,7 +155,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -161,7 +168,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -174,7 +181,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -187,7 +194,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -200,7 +207,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddCowboyCoffeeButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddCowboyCoffeeButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -213,7 +220,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddJerkedSodaButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddJerkedSodaButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -226,7 +233,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddTexasTeaButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddTexasTeaButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {
@@ -239,7 +246,7 @@ namespace PointOfSale
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void OnAddWaterButtonClicked(object sender, RoutedEventArgs e)
+        public void OnAddWaterButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order data)
             {

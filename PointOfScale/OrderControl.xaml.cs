@@ -21,6 +21,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -47,7 +48,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
         {
-            //Not Implemented Yet
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
@@ -70,5 +71,10 @@ namespace PointOfSale
         {
             this.DataContext = new Order();
         }    
+
+        public void SwapScreen(UIElement element)
+        {
+            Container.Child = element;
+        }
     }
 }

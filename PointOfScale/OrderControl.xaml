@@ -18,17 +18,16 @@
             <ColumnDefinition/>
             <ColumnDefinition Width="300"/>
         </Grid.ColumnDefinitions>
-        <StackPanel>
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Button Name="ItemSelectionButton" Margin="65 30 30 30" Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
-                <Button Name="CancelOrderButton" Margin="30" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
-                <Button Name="CompleteOrderButton" Margin="30 30 50 30" HorizontalAlignment="Right">Complete Order</Button>
-            </Grid>
-            <local:MenuItemSelectionControl Grid.Column="0"/>
-        </StackPanel>
-        <local:OrderSummaryControl Grid.Column="1"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <Button Name="ItemSelectionButton" Margin="65 30 30 30" Grid.Row="0" HorizontalAlignment="Left">Item Selection</Button>
+            <Button Name="CancelOrderButton" Margin="30" Grid.Row="0" HorizontalAlignment="Center">Cancel Order</Button>
+            <Button Name="CompleteOrderButton" Grid.Row="0"  Margin="30 30 50 30" HorizontalAlignment="Right">Complete Order</Button>
+        <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
+            <local:MenuItemSelectionControl Grid.Column="0" Grid.Row="1"/>
+        </Border>
+            <local:OrderSummaryControl Grid.Column="1" Grid.RowSpan="2"/>
     </Grid>
 </UserControl>
