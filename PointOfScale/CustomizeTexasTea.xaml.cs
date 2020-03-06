@@ -10,24 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CowboyCafe.Data;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CustomizeCowpokeChili.xaml
+    /// Interaction logic for CustomizeTexasTea.xaml
     /// </summary>
-    public partial class CustomizeCowpokeChili : UserControl
+    public partial class CustomizeTexasTea : UserControl
     {
-        public CustomizeCowpokeChili()
+        public CustomizeTexasTea()
         {
             InitializeComponent();
-
-        }
-
-        public void OnHoldCheeseCheckboxClicked(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }

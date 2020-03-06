@@ -39,6 +39,7 @@ namespace PointOfSale
             ItemSelectionButton.Click += OnItemSelectionButtonClicked;
             CancelOrderButton.Click += OnCancelOrderButtonClicked;
             CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
+            DataContext = new Order();
         }
 
         /// <summary>
@@ -48,7 +49,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
         {
-            SwapScreen(new MenuItemSelectionControl());
+            Container.Child = new MenuItemSelectionControl();
         }
 
         /// <summary>

@@ -32,7 +32,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" FontSize="18" Text="{Binding}"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" FontSize="18" Text="{Binding Path=Price, StringFormat=c}"/>
-                        <ListView FontSize="18" BorderThickness="0" Grid.Row="1" Grid.Column="0" ItemsSource="{Binding Path=SpecialInstructions}"/>
+                        <ListView FontSize="18" BorderThickness="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=SpecialInstructions}"/>
                     </Grid>
                 </DataTemplate>
             </ListBox.ItemTemplate>

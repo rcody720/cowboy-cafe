@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CustomizeCowpokeChili"
+﻿<UserControl x:Class="PointOfSale.CustomizeTrailBurger"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -19,24 +19,30 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="30">Cowpoke Chili Special Instructions</TextBlock>
-        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Cheese}" Grid.Row="0" Grid.Column="0">Cheese
+        <TextBlock Grid.ColumnSpan="3" HorizontalAlignment="Center" FontSize="30">Trail Burger Special Instructions</TextBlock>
+        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Bun}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0">Bun
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=GreenOnions}" Grid.Row="1" Grid.Column="0">Green Onions
+        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Ketchup}" Grid.Row="1" Grid.Column="0">Ketchup
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=SourCream}" Grid.Row="0" Grid.Column="1">Sour Cream
+        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Cheese}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="1">Cheese
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2"/>
             </CheckBox.LayoutTransform>
         </CheckBox>
-        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=TortillaStrips}" Grid.Row="1" Grid.Column="1">Tortilla Strips
+        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Pickle}" Grid.Row="1" Grid.Column="1">Pickle
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding Path=Mustard}" Grid.Row="1" Grid.Column="2">Mustard
             <CheckBox.LayoutTransform>
                 <ScaleTransform ScaleX="2" ScaleY="2"/>
             </CheckBox.LayoutTransform>

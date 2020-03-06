@@ -35,31 +35,75 @@ namespace CowboyCafe.Data
             get { return 288; }
         }
 
+        private bool bun = true;
         /// <summary>
         /// If the entree should be served with a bun
         /// </summary>
-        public bool Bun { get; set; } = true;
+        public bool Bun{
 
+            get { return bun; }
+            set
+            {
+                bun = value;
+                NotifyOfPropertyChange("Bun");
+}
+        }
+
+        private bool ketchup = true;
         /// <summary>
         /// If the entree should be served with Ketchup
         /// </summary>
-        public bool Ketchup { get; set; } = true;
+        public bool Ketchup
+        {
+            get { return ketchup; }
+            set
+            {
+                ketchup = value;
+                NotifyOfPropertyChange("Ketchup");
+            }
+        }
 
+        private bool mustard = true;
         /// <summary>
         /// If the entree should be served with Mustard
         /// </summary>
-        public bool Mustard { get; set; } = true;
+        public bool Mustard
+        {
+            get { return mustard; }
+            set
+            {
+                mustard = value;
+                NotifyOfPropertyChange("Mustard");
+            }
+        }
 
+        private bool pickle = true;
         /// <summary>
         /// If the entree should be served with Pickles
         /// </summary>
-        public bool Pickle { get; set; } = true;
+        public bool Pickle
+        {
+            get { return pickle; }
+            set
+            {
+                pickle = value;
+                NotifyOfPropertyChange("Pickle");
+            }
+        }
 
+        private bool cheese = true;
         /// <summary>
         /// If the entree should be served with cheese
         /// </summary>
-        public bool Cheese { get; set; } = true;
-
+        public bool Cheese
+        {
+            get { return cheese; }
+            set
+            {
+                cheese = value;
+                NotifyOfPropertyChange("Cheese");
+            }
+        }
         /// <summary>
         /// The special instructions for making the entree
         /// </summary>
