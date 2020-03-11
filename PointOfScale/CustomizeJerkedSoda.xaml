@@ -44,6 +44,6 @@
         <RadioButton Grid.Row="3" Grid.Column="2" GroupName="Flavor" IsChecked="{Binding Path=IsCreamSoda}">Cream Soda</RadioButton>
         <RadioButton Grid.Row="4" Grid.Column="2" GroupName="Flavor" IsChecked="{Binding Path=IsOrangeSoda}">Orange Soda</RadioButton>
         <RadioButton Grid.Row="5" Grid.Column="2" GroupName="Flavor" IsChecked="{Binding Path=IsRootBeer}">Root Beer</RadioButton>
-        <RadioButton Grid.Row="6" Grid.Column="2" GroupName="Flavor" IsChecked="{Binding Path=IsSarsaparilla}">Sarsaparilla</RadioButton>
+        <RadioButton Grid.Row="6" Grid.Column="2" GroupName="Flavor" IsChecked="{Binding Path=IsSarsparilla}">Sarsaparilla</RadioButton>
     </Grid>
 </UserControl>

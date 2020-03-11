@@ -197,9 +197,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddBakedBeansButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data)
             {
-                data.Add(new BakedBeans());
+                var item = new BakedBeans();
+                var screen = new CustomizeBakedBeans();
+                AddItemAndOpenCustomization(item, screen);
             }
         }
 
@@ -210,9 +214,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddChiliCheeseFriesButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data)
             {
-                data.Add(new ChiliCheeseFries());
+                var item = new ChiliCheeseFries();
+                var screen = new CustomizeChiliCheeseFries();
+                AddItemAndOpenCustomization(item, screen);
             }
         }
 
@@ -223,9 +231,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddCornDodgersButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data)
             {
-                data.Add(new CornDodgers());
+                var item = new CornDodgers();
+                var screen = new CustomizeCornDodgers();
+                AddItemAndOpenCustomization(item, screen);
             }
         }
 
@@ -236,9 +248,13 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void OnAddPanDeCampoButtonClicked(object sender, RoutedEventArgs e)
         {
+            var orderControl = this.FindAncestor<OrderControl>();
+
             if (DataContext is Order data)
             {
-                data.Add(new PanDeCampo());
+                var item = new PanDeCampo();
+                var screen = new CustomizePanDeCampo();
+                AddItemAndOpenCustomization(item, screen);
             }
         }
 

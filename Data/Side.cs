@@ -40,7 +40,7 @@ namespace CowboyCafe.Data
             set
             {
                 size = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                NotifyOfSizeChanged();
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
             }
@@ -74,6 +74,14 @@ namespace CowboyCafe.Data
                 }
                 return false;
             }
+            set
+            {
+                if (value)
+                {
+                    Size = Size.Small;
+                    NotifyOfSizeChanged();
+                }
+            }
 
         }
 
@@ -89,6 +97,14 @@ namespace CowboyCafe.Data
                     return true;
                 }
                 return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    Size = Size.Medium;
+                    NotifyOfSizeChanged();
+                }
             }
 
         }
@@ -106,7 +122,23 @@ namespace CowboyCafe.Data
                 }
                 return false;
             }
+            set
+            {
+                if (value)
+                {
+                    Size = Size.Large;
+                    NotifyOfSizeChanged();
+                }
+            }
 
+        }
+
+        /// <summary>
+        /// Helper method to notify of boolean property customization property changes
+        /// </summary>
+        protected void NotifyOfSizeChanged()
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
         }
     }
 }

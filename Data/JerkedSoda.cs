@@ -160,7 +160,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets if the flavor is Sarsaparilla
         /// </summary>
-        public bool IsSarsaparilla
+        public bool IsSarsparilla
         {
             get
             {
