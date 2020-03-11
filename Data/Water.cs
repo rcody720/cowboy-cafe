@@ -61,10 +61,22 @@ namespace CowboyCafe.Data
             }
         }
 
+        private bool lemon = false;
         /// <summary>
         /// Gets if it should have a lemon
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get
+            {
+                return lemon;
+            }
+            set
+            {
+                lemon = value;
+                NotifyOfPropertyChange();
+            }
+        }
 
         /// <summary>
         /// Gets the special instructions

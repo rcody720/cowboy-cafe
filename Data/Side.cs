@@ -60,5 +60,53 @@ namespace CowboyCafe.Data
         /// Gets the special instructions for cooking
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Gets if the size is small
+        /// </summary>
+        public virtual bool IsSmall
+        {
+            get
+            {
+                if (Size == Size.Small)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+        }
+
+        /// <summary>
+        /// Gets if the size is medium
+        /// </summary>
+        public virtual bool IsMedium
+        {
+            get
+            {
+                if (Size == Size.Medium)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+        }
+
+        /// <summary>
+        /// Gets if the size is large
+        /// </summary>
+        public virtual bool IsLarge
+        {
+            get
+            {
+                if (Size == Size.Large)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+        }
     }
 }

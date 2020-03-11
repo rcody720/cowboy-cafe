@@ -6,7 +6,41 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="RadioButton">
+            <Setter Property="Margin" Value="130 25"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0 20 0 0"/>
+        </Style>
+        <Style TargetType="ToggleButton">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="100 30"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="3">Cowboy Coffee Special Instructions</TextBlock>
+        <TextBlock TextDecorations="Underline" Grid.Row="1" Grid.Column="0">Size</TextBlock>
+        <RadioButton Grid.Row="2" Grid.Column="0" IsChecked="{Binding Path=IsSmall}">Small</RadioButton>
+        <RadioButton Grid.Row="3" Grid.Column="0" IsChecked="{Binding Path=IsMedium}">Medium</RadioButton>
+        <RadioButton Grid.Row="4" Grid.Column="0" IsChecked="{Binding Path=IsLarge}">Large</RadioButton>
+        <TextBlock Grid.Row="1" Grid.Column="1" TextDecorations="Underline">Special Instructions</TextBlock>
+        <ToggleButton  Grid.Row="2" Grid.Column="1" FontSize="18" IsChecked="{Binding Path=Ice}">Ice</ToggleButton>
+        <ToggleButton  Grid.Row="3" Grid.Column="1" FontSize="18" IsChecked="{Binding Path=RoomForCream}">Room For Cream</ToggleButton>
+        <ToggleButton  Grid.Row="4" Grid.Column="1" FontSize="18" IsChecked="{Binding Path=Decaf}">Decaf</ToggleButton>
     </Grid>
 </UserControl>

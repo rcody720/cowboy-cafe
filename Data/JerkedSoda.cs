@@ -17,7 +17,7 @@ namespace CowboyCafe.Data
     /// A class representing a jerked soda
     /// </summary>
     public class JerkedSoda : Drink
-    {
+    {        
         /// <summary>
         /// Gets the price 
         /// </summary>
@@ -64,6 +64,121 @@ namespace CowboyCafe.Data
         /// Gets the Flavor 
         /// </summary>
         public SodaFlavor Flavor { get; set; }
+
+        /// <summary>
+        /// Gets if the flavor is Birch Beer
+        /// </summary>
+        public bool IsBirchBeer
+        {
+            get
+            {
+                if(Flavor == SodaFlavor.BirchBeer)
+                {
+                    return true;
+                }
+                return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    Flavor = SodaFlavor.BirchBeer;
+                    NotifyOfFlavorChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets if the flavor is Cream Soda
+        /// </summary>
+        public bool IsCreamSoda
+        {
+            get
+            {
+                if (Flavor == SodaFlavor.CreamSoda)
+                {
+                    return true;
+                }
+                return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    Flavor = SodaFlavor.CreamSoda;
+                    NotifyOfFlavorChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets if the flavor is Orange Soda
+        /// </summary>
+        public bool IsOrangeSoda
+        {
+            get
+            {
+                if (Flavor == SodaFlavor.OrangeSoda)
+                {
+                    return true;
+                }
+                return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    Flavor = SodaFlavor.OrangeSoda;
+                    NotifyOfFlavorChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets if the flavor is Root Beer
+        /// </summary>
+        public bool IsRootBeer
+        {
+            get
+            {
+                if (Flavor == SodaFlavor.RootBeer)
+                {
+                    return true;
+                }
+                return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    Flavor = SodaFlavor.RootBeer;
+                    NotifyOfFlavorChange();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets if the flavor is Sarsaparilla
+        /// </summary>
+        public bool IsSarsaparilla
+        {
+            get
+            {
+                if (Flavor == SodaFlavor.Sarsparilla)
+                {
+                    return true;
+                }
+                return false;
+            }
+            set
+            {
+                if (value)
+                {
+                    Flavor = SodaFlavor.Sarsparilla;
+                    NotifyOfFlavorChange();
+                }
+            }
+        }
 
         /// <summary>
         /// Gets the special instructions
