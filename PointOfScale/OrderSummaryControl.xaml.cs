@@ -20,6 +20,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Extensions;
+using CowboyCafe.Data;
 
 namespace PointOfSale
 {
@@ -35,6 +37,15 @@ namespace PointOfSale
         {
             InitializeComponent();
             
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        { 
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (DataContext is AngryChicken data)
+            {
+                orderControl.SwapScreen(CustomizeAngryChicken);
+            }
         }
     }
 }

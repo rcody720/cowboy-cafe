@@ -73,6 +73,10 @@ namespace PointOfSale
             this.DataContext = new Order();
         }    
 
+        /// <summary>
+        /// Swaps the screens in the container
+        /// </summary>
+        /// <param name="element">Screen to be switched to</param>
         public void SwapScreen(UIElement element)
         {
             Container.Child = element;

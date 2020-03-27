@@ -7,5 +7,5 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1480">
 
-    <local:OrderControl/>
+        <local:OrderControl/>
 </Window>

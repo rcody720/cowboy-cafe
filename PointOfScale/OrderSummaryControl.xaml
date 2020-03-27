@@ -18,7 +18,7 @@
             <RowDefinition Height="30px"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0" Text="{Binding Path=OrderNumber, StringFormat=Order {0}}" FontSize="30" TextAlignment="Center"/>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}">
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=Items}" SelectionChanged="ListBox_SelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Grid>
