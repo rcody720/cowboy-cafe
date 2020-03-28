@@ -25,6 +25,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="50"/>
+                            <ColumnDefinition Width="40"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -32,6 +33,7 @@
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Grid.Column="0" FontSize="18" Text="{Binding}"/>
                         <TextBlock Grid.Row="0" Grid.Column="1" FontSize="18" Text="{Binding Path=Price, StringFormat=c}"/>
+                        <Button Grid.Row="0" Grid.Column="2" Height="25" FontSize="12" VerticalAlignment="Center">x</Button>
                         <ListView FontSize="18" BorderThickness="0" Grid.Row="1" Grid.ColumnSpan="2" ItemsSource="{Binding Path=SpecialInstructions}"/>
                     </Grid>
                 </DataTemplate>
