@@ -60,10 +60,22 @@ namespace CowboyCafe.Data
             }
         }
 
+        private SodaFlavor flavor;
         /// <summary>
         /// Gets the Flavor 
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor
+        {
+            get
+            {
+                return flavor;
+            }
+            set
+            {
+                flavor = value;
+                NotifyOfFlavorChange();
+            }
+        }
 
         /// <summary>
         /// Gets if the flavor is Birch Beer
