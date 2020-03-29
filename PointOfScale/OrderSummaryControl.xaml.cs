@@ -39,6 +39,11 @@ namespace PointOfSale
             
         }
 
+        /// <summary>
+        /// Allows the user to return to the special instructions screen for a selected item in the order
+        /// </summary>
+        /// <param name="sender">The item selected</param>
+        /// <param name="e">The items in the listbox</param>
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         { 
             var orderControl = this.FindAncestor<OrderControl>();
@@ -129,6 +134,22 @@ namespace PointOfSale
                     screen.DataContext = item;
                     orderControl.SwapScreen(screen);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Deletes the item from the order
+        /// </summary>
+        /// <param name="sender">the button clicked</param>
+        /// <param name="e"></param>
+        private void OnDeleteButtonClick(object sender, RoutedEventArgs e)
+        {
+            if(DataContext is Order data)
+            {
+                if(sender is Button button)
+                {
+                    data.Remove((IOrderItem)button.DataContext);
+                }                
             }
         }
     }
