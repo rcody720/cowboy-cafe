@@ -12,6 +12,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
 using CowboyCafe.Extensions;
+using CashRegister;
 
 namespace PointOfSale
 {
@@ -23,6 +24,19 @@ namespace PointOfSale
         public TransactionControl()
         {
             InitializeComponent();
+            
+        }
+
+        void OnCashButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var cardTerminal = new CardTerminal();
+            ResultCode result = cardTerminal.ProcessTransaction();
+        }
+
+        void OnCreditButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var cardTerminal = new CardTerminal();
+            ResultCode result = cardTerminal.ProcessTransaction();
         }
 
         void OnCancelButtonClicked(object sender, RoutedEventArgs e)
