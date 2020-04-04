@@ -49,7 +49,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnItemSelectionButtonClicked(object sender, RoutedEventArgs e)
         {
-            Container.Child = new MenuItemSelectionControl();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnCompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            Page.Child = new TransactionControl();
         }    
 
         /// <summary>
