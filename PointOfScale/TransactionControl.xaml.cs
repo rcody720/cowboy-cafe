@@ -21,21 +21,19 @@ namespace PointOfSale
     /// </summary>
     public partial class TransactionControl : UserControl
     {
+
+        private CashDrawer cashDrawer = new CashDrawer();
+
         public TransactionControl()
         {
-            InitializeComponent();
-            
+            InitializeComponent();                       
         }
 
         void OnCashButtonClicked(object sender, RoutedEventArgs e)
         {
-            var cardTerminal = new CardTerminal();
-
             if (DataContext is Order data)
             {
-                ResultCode result = cardTerminal.ProcessTransaction(data.Total);
-
-
+                
             }
             
             
@@ -51,29 +49,7 @@ namespace PointOfSale
 
                 if (result == ResultCode.Success)
                 {
-                    var receiptPrinter = new ReceiptPrinter();
-                    StringBuilder sb = new StringBuilder();
-                    sb.AppendLine("Order: " + data.OrderNumber.ToString());
-                    sb.AppendLine(DateTime.Now.ToString());
-
-                    foreach(IOrderItem item in data.Items)
-                    {
-                        sb.AppendLine(item.ToString());
-                        if(item.SpecialInstructions != null)
-                        {
-                            foreach(string details in item.SpecialInstructions)
-                            {
-                                sb.AppendLine(details);
-                            }
-                        }
-
-                    }
-
-                    sb.AppendLine("Subtotal: " + String.Format("{0:C2}", data.Subtotal));
-                    sb.AppendLine("Total: " + String.Format("{0:C2}", data.Total));
-                    sb.AppendLine("Paid with Credit");
-
-                    receiptPrinter.Print(sb.ToString());
+                    ReceiptPrinting(data);
                 }
                 else
                 {
@@ -87,6 +63,33 @@ namespace PointOfSale
         {        
             var orderControl = this.FindAncestor<OrderControl>();
             orderControl.Page.Child = new OrderControl();
+        }
+
+        private void ReceiptPrinting(Order data)
+        {
+            var receiptPrinter = new ReceiptPrinter();
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("Order: " + data.OrderNumber.ToString());
+            sb.AppendLine(DateTime.Now.ToString());
+
+            foreach (IOrderItem item in data.Items)
+            {
+                sb.AppendLine(item.ToString());
+                if (item.SpecialInstructions != null)
+                {
+                    foreach (string details in item.SpecialInstructions)
+                    {
+                        sb.AppendLine(details);
+                    }
+                }
+
+            }
+
+            sb.AppendLine("Subtotal: " + String.Format("{0:C2}", data.Subtotal));
+            sb.AppendLine("Total: " + String.Format("{0:C2}", data.Total));
+            sb.AppendLine("Paid with Credit");
+
+            receiptPrinter.Print(sb.ToString());
         }
     }
 }
