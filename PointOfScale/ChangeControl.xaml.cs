@@ -10,21 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using CowboyCafe.Data;
 
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for CashDrawerControl.xaml
+    /// Interaction logic for ChangeControl.xaml
     /// </summary>
-    public partial class CashDrawerControl : UserControl
+    public partial class ChangeControl : UserControl
     {
-        public CashDrawerControl()
+        public ChangeControl()
         {
             InitializeComponent();
-            DataContext = new CashRegisterModelView();                 
         }
-
-
     }
 }

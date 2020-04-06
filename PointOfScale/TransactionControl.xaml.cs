@@ -33,7 +33,8 @@ namespace PointOfSale
         {
             if(DataContext is Order data)
             {
-                ButtonArea.Child = cashDrawerControl;                
+                ButtonArea.Child = cashDrawerControl;
+                
                 ReceiptPrinting(data);
             }
             
