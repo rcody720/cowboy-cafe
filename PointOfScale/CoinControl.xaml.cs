@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: CoinControl.xaml.cs
+
+* Purpose: The back-end of the coin control screen
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -53,11 +63,21 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles when the increase button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnIncreaseClicked(object sender, RoutedEventArgs e)
         {
             Quantity++;
         }
 
+        /// <summary>
+        /// Handles when the decrease button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void OnDecreaseClicked(object sender, RoutedEventArgs e)
         {
             Quantity--;

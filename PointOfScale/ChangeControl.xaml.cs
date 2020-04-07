@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-/*
+﻿/*
 
 * Author: Cody Reeves
 
@@ -16,6 +8,14 @@ using System.Windows.Input;
 
 */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -30,21 +30,30 @@ namespace PointOfSale
     /// </summary>
     public partial class ChangeControl : UserControl
     {
-
-        public double Change;
-
+        
+        /// <summary>
+        /// The constructor
+        /// </summary>
         public ChangeControl()
         {
             InitializeComponent();                       
         }
 
-        public ChangeControl(double chng, CashRegisterModelView crmv)
+        /// <summary>
+        /// The constructor with one parameter
+        /// </summary>
+        /// <param name="crmv">The cash register model view</param>
+        public ChangeControl(CashRegisterModelView crmv)
         {
-            Change = chng;
             InitializeComponent();
             DataContext = crmv;
         }
 
+        /// <summary>
+        /// Handles when the done button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnDoneButtonClicked(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();

@@ -32,7 +32,12 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+
+        /// <summary>
+        /// The drawer that contains all the money
+        /// </summary>
         static CashDrawer drawer = new CashDrawer();
+
         /// <summary>
         /// Initializes the components and and assigns click event handler
         /// </summary>

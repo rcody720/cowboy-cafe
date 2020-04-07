@@ -34,13 +34,17 @@ namespace PointOfSale
 
         CashDrawer drawer;
         /// <summary>
-        /// Constructor
+        ///The Constructor
         /// </summary>
         public TransactionControl()
         {
             InitializeComponent();                       
         }
 
+        /// <summary>
+        /// The constructor with one parameter
+        /// </summary>
+        /// <param name="cd"></param>
         public TransactionControl(CashDrawer cd)
         {
             InitializeComponent();

@@ -31,7 +31,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CashDrawerControl : UserControl
     {
+
         CashRegisterModelView crmv;
+
         public CashDrawerControl()
         {
             InitializeComponent();               
@@ -67,7 +69,7 @@ namespace PointOfSale
                 {
                     double change = data.Payment - data.TotalCost;
                     var orderControl = this.FindAncestor<OrderControl>();
-                    orderControl.Page.Child = new ChangeControl(change, crmv);
+                    orderControl.Page.Child = new ChangeControl(crmv);
                 }
             }
             
