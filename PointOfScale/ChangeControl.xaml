@@ -6,7 +6,48 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="25"/>
+        </Style>
+    </UserControl.Resources>
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center">Order Total:</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Path=TotalCost, StringFormat=c}"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="1" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center">Payment Total:</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Payment, StringFormat=c}"/>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Center" Grid.Row="2" Grid.Column="1">
+            <TextBlock HorizontalAlignment="Center">Change Due:</TextBlock>
+            <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Change, StringFormat=c}"/>
+        </StackPanel>
+        </Grid>
+        <ListBox Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Path=ChangeDenominations}">
+            <!--<ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <ListView Grid.Column="0" ItemsSource="{Binding Path=ChangeDenominations}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>-->
+        </ListBox>
     </Grid>
 </UserControl>

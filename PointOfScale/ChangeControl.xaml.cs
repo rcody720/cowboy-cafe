@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -18,9 +20,19 @@ namespace PointOfSale
     /// </summary>
     public partial class ChangeControl : UserControl
     {
+
+        public double Change;
+
         public ChangeControl()
         {
+            InitializeComponent();                       
+        }
+
+        public ChangeControl(double chng, CashRegisterModelView crmv)
+        {
+            Change = chng;
             InitializeComponent();
+            DataContext = crmv;
         }
     }
 }

@@ -9,7 +9,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
-            <RowDefinition/>
+            <RowDefinition Height="275"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel>
@@ -33,5 +33,6 @@
             <local:CoinControl Denomination="HalfDollar" Quantity="{Binding Path=HalfDollars}"/>
             <local:CoinControl Denomination="Dollar" Quantity="{Binding Path=Dollars}"/>
         </StackPanel>
+        <Button Grid.Row="2" FontSize="25" Margin="400 250 400 100" Click="OnDoneButtonClicked">Done</Button>
     </Grid>
 </UserControl>

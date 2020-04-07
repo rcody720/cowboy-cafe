@@ -11,6 +11,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using CashRegister;
+using CowboyCafe.Extensions;
 
 namespace PointOfSale
 {
@@ -19,12 +21,37 @@ namespace PointOfSale
     /// </summary>
     public partial class CashDrawerControl : UserControl
     {
+        CashRegisterModelView crmv;
         public CashDrawerControl()
         {
-            InitializeComponent();
-            DataContext = new CashRegisterModelView();                 
+            InitializeComponent();               
         }
 
+        public CashDrawerControl(CashDrawer cd, Order ord)
+        {
+            crmv = new CashRegisterModelView(cd, ord);
+            DataContext = crmv;
+            InitializeComponent();
+        }
+
+    void OnDoneButtonClicked(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is CashRegisterModelView data)
+            {
+               
+               if(data.Payment < data.TotalCost)
+                {
+                    MessageBox.Show("Insufficient Payment. Add More");
+                }
+                else
+                {
+                    double change = data.Payment - data.TotalCost;
+                    var orderControl = this.FindAncestor<OrderControl>();
+                    orderControl.Page.Child = new ChangeControl(change, crmv);
+                }
+            }
+            
+        }
 
     }
 }

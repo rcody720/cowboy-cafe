@@ -70,13 +70,20 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The current order number
         /// </summary>
-        public uint OrderNumber => lastOrderNumber++;
+        public uint OrderNumber => lastOrderNumber;
 
         /// <summary>
         /// An event handler for when a property is changed
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Order constructor that increments the order number.
+        /// </summary>
+        public Order()
+        {
+            lastOrderNumber++;
+        }
         /// <summary>
         /// Adds to the list of items
         /// </summary>

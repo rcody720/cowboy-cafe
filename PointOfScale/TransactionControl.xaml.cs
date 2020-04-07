@@ -22,7 +22,7 @@ namespace PointOfSale
     public partial class TransactionControl : UserControl
     {
 
-        private CashDrawerControl cashDrawerControl = new CashDrawerControl();
+        private CashDrawer drawer = new CashDrawer();
 
         public TransactionControl()
         {
@@ -33,7 +33,7 @@ namespace PointOfSale
         {
             if(DataContext is Order data)
             {
-                ButtonArea.Child = cashDrawerControl;
+                ButtonArea.Child = new CashDrawerControl(drawer, data);
                 
                 ReceiptPrinting(data);
             }
