@@ -5,13 +5,14 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="800" d:DesignWidth="1480">
 
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="FontSize" Value="25"/>
         </Style>
     </UserControl.Resources>
+    <Border x:Name="Screen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -36,18 +37,16 @@
             <TextBlock HorizontalAlignment="Center" Text="{Binding Path=Change, StringFormat=c}"/>
         </StackPanel>
         </Grid>
-        <ListBox Grid.Column="0" Grid.RowSpan="3" ItemsSource="{Binding Path=ChangeDenominations}">
-            <!--<ListBox.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <ListView Grid.Column="0" ItemsSource="{Binding Path=ChangeDenominations}"/>
-                    </Grid>
-                </DataTemplate>
-            </ListBox.ItemTemplate>-->
-        </ListBox>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="150"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Center">Change Break Down</TextBlock>
+            <ListBox Grid.Row="1" Grid.Column="0" FontSize="25" ItemsSource="{Binding Path=ChangeDenominations}"/>
+            <Button Grid.Row="2" FontSize="25" Margin="150 40"  Click="OnDoneButtonClicked">Done</Button>
+        </Grid>
     </Grid>
+    </Border>
 </UserControl>

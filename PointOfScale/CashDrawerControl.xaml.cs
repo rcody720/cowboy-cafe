@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: CashDrawerControl.xaml.cs
+
+* Purpose: The back-end of the Cash Drawer Control
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -27,6 +37,11 @@ namespace PointOfSale
             InitializeComponent();               
         }
 
+        /// <summary>
+        /// A constructor that takes in 2 parameters
+        /// </summary>
+        /// <param name="cd">The cash drawer</param>
+        /// <param name="ord">The order</param>
         public CashDrawerControl(CashDrawer cd, Order ord)
         {
             crmv = new CashRegisterModelView(cd, ord);
@@ -34,7 +49,12 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-    void OnDoneButtonClicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles when the done button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void OnDoneButtonClicked(object sender, RoutedEventArgs e)
         {
             if (DataContext is CashRegisterModelView data)
             {

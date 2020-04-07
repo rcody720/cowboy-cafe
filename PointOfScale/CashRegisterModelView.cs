@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: CashRegisterModelView.cs
+
+* Purpose: The model view for the Cash Register
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -7,6 +17,9 @@ using CowboyCafe.Data;
 
 namespace PointOfSale
 {
+    /// <summary>
+    /// The model view class for the cash register
+    /// </summary>
     public class CashRegisterModelView : INotifyPropertyChanged
     {
         /// <summary>
@@ -25,15 +38,24 @@ namespace PointOfSale
         Order order;
 
         /// <summary>
-        /// The total current value of the drawer
+        /// Gets The total current value of the drawer
         /// </summary>
         public double TotalValue => drawer.TotalValue;
 
+        /// <summary>
+        /// Gets how much the customer paid
+        /// </summary>
         public double Payment { get; private set; }
 
+        /// <summary>
+        /// Gets the total cost of the order
+        /// </summary>
         public double TotalCost => order.Total;
 
         private double change;
+        /// <summary>
+        /// Gets how much change the customer receives
+        /// </summary>
         public double Change
         {
             get
@@ -46,23 +68,72 @@ namespace PointOfSale
             }
         }
  
+        /// <summary>
+        /// Breaks the change into the appropriate denominations
+        /// </summary>
         public List<string> ChangeDenominations
         {
             get
             {
                 double[] denominations = {100, 50, 20, 10, 5, 2, 1, 1, .50, .25, .10, .05, .01};
-                int[] quantities = { Pennies, Nickels, Dimes, Quarters, HalfDollars, Dollars, Ones, Twos, Fives, Tens, Twenties, Fifties, Hundreds };
+                int[] quantities = { Hundreds, Fifties, Twenties, Tens, Fives, Twos, Ones, Dollars, HalfDollars, Quarters, Dimes, Nickels, Pennies };
                 List<string> answer = new List<string>();
                 double count;
+                double amount = Math.Round(Change, 2);
                 for (int i = 0; i < denominations.Length; i++)
                 {
-                    count = Change / denominations[i];
+                    count = amount / denominations[i];
                     int round = (int)count;
                     if (round != 0 && round <= quantities[i])
                     {
                         string number = $"Number of {denominations[i]}'s: {round}";
                         answer.Add(number);
-                        Change -= denominations[i] * round;
+                        amount -= (denominations[i] * round);
+                        amount = Math.Round(amount, 2);    
+                        
+                        switch (i)
+                        {
+                            case 0:
+                                drawer.RemoveBill(Bills.Hundred, round);
+                                break;
+                            case 1:
+                                drawer.RemoveBill(Bills.Fifty, round);
+                                break;
+                            case 2:
+                                drawer.RemoveBill(Bills.Twenty, round);
+                                break;
+                            case 3:
+                                drawer.RemoveBill(Bills.Ten, round);
+                                break;
+                            case 4:
+                                drawer.RemoveBill(Bills.Five, round);
+                                break;
+                            case 5:
+                                drawer.RemoveBill(Bills.Two, round);
+                                break;
+                            case 6:
+                                drawer.RemoveBill(Bills.One, round);
+                                break;
+                            case 7:
+                                drawer.RemoveCoin(Coins.Dollar, round);
+                                break;
+                            case 8:
+                                drawer.RemoveCoin(Coins.HalfDollar, round);
+                                break;
+                            case 9:
+                                drawer.RemoveCoin(Coins.Quarter, round);
+                                break;
+                            case 10:
+                                drawer.RemoveCoin(Coins.Dime, round);
+                                break;
+                            case 11:
+                                drawer.RemoveCoin(Coins.Nickel, round);
+                                break;
+                            case 12:
+                                drawer.RemoveCoin(Coins.Penny, round);
+                                break;
+                        }
+
                     }
                     
                 }

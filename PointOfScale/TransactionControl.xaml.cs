@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: TransactionContorl.xaml.cs
+
+* Purpose: The back-end of the Transaction control
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,24 +32,42 @@ namespace PointOfSale
     public partial class TransactionControl : UserControl
     {
 
-        private CashDrawer drawer = new CashDrawer();
-
+        CashDrawer drawer;
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public TransactionControl()
         {
             InitializeComponent();                       
         }
 
+        public TransactionControl(CashDrawer cd)
+        {
+            InitializeComponent();
+            drawer = cd;
+        }
+
+        /// <summary>
+        /// Handles when the cash button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnCashButtonClicked(object sender, RoutedEventArgs e)
         {
             if(DataContext is Order data)
             {
                 ButtonArea.Child = new CashDrawerControl(drawer, data);
                 
-                ReceiptPrinting(data);
+                ReceiptPrinting(data, false);
             }
             
         }
 
+        /// <summary>
+        /// Handles when the credit card button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnCreditButtonClicked(object sender, RoutedEventArgs e)
         {
             var cardTerminal = new CardTerminal();
@@ -50,7 +78,7 @@ namespace PointOfSale
 
                 if (result == ResultCode.Success)
                 {
-                    ReceiptPrinting(data);
+                    ReceiptPrinting(data, true);
                 }
                 else
                 {
@@ -60,13 +88,22 @@ namespace PointOfSale
 
         }
 
+        /// <summary>
+        /// Handles when the cancel button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OnCancelButtonClicked(object sender, RoutedEventArgs e)
         {        
             var orderControl = this.FindAncestor<OrderControl>();
             orderControl.Page.Child = new OrderControl();
         }
 
-        private void ReceiptPrinting(Order data)
+        /// <summary>
+        /// Helper method to construct the string for the receipt
+        /// </summary>
+        /// <param name="data">The Order</param>
+        private void ReceiptPrinting(Order data, bool credit)
         {
             var receiptPrinter = new ReceiptPrinter();
             StringBuilder sb = new StringBuilder();
@@ -88,8 +125,14 @@ namespace PointOfSale
 
             sb.AppendLine("Subtotal: " + String.Format("{0:C2}", data.Subtotal));
             sb.AppendLine("Total: " + String.Format("{0:C2}", data.Total));
-            sb.AppendLine("Paid with Credit");
-
+            if (credit)
+            {
+                sb.AppendLine("Paid with Credit");
+            }
+            else
+            {
+                 sb.AppendLine("Paid with Cash");
+            }            
             receiptPrinter.Print(sb.ToString());
         }
     }

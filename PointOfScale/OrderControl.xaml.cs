@@ -22,6 +22,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Extensions;
+using CashRegister;
+
 
 namespace PointOfSale
 {
@@ -30,6 +32,7 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        static CashDrawer drawer = new CashDrawer();
         /// <summary>
         /// Initializes the components and and assigns click event handler
         /// </summary>
@@ -39,7 +42,7 @@ namespace PointOfSale
             ItemSelectionButton.Click += OnItemSelectionButtonClicked;
             CancelOrderButton.Click += OnCancelOrderButtonClicked;
             CompleteOrderButton.Click += OnCompleteOrderButtonClicked;
-            DataContext = new Order();
+            DataContext = new Order();            
         }
 
         /// <summary>
@@ -70,7 +73,7 @@ namespace PointOfSale
         /// <param name="e"></param>
         void OnCompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            Page.Child = new TransactionControl();
+            Page.Child = new TransactionControl(drawer);
         }    
 
         /// <summary>
