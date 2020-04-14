@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PointOfSale", "PointOfScale\PointOfSale.csproj", "{84F56DF9-B3D8-40E5-90BF-5E8382E15972}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Website", "Website\Website.csproj", "{90994DC0-68DF-415E-9958-8256839D4DFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{84F56DF9-B3D8-40E5-90BF-5E8382E15972}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84F56DF9-B3D8-40E5-90BF-5E8382E15972}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84F56DF9-B3D8-40E5-90BF-5E8382E15972}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90994DC0-68DF-415E-9958-8256839D4DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90994DC0-68DF-415E-9958-8256839D4DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90994DC0-68DF-415E-9958-8256839D4DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90994DC0-68DF-415E-9958-8256839D4DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
