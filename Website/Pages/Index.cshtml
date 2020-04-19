@@ -1,50 +1,91 @@
-﻿@page
+﻿@*
+    
+Author: Cody Reeves
+    
+File name: Index.cshtml
+    
+Description: The Home page of the website
+    
+*@
+
+
+
+@page
 @model IndexModel
 @using CowboyCafe.Data
 @{
     ViewData["Title"] = "Home page";
 }
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome To</h1>
-        <h1>Cowboy Cafe</h1>
-    </div>
+@*Title section of the page*@
+<div class="text-center">
+    <h1 class="display-4">Welcome To</h1>
+    <h1>Cowboy Cafe</h1>
+</div>
 
-    <p>
-        We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-        Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-        Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
-        You’ve had a hard ride - so take it easy with us.
-    </p>
+@*Introduction paragraph*@
+<p>
+    We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+    Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+    Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger!
+    You’ve had a hard ride - so take it easy with us.
+</p>
 
-    <div class="text-center">
-        <h2 class="category">Entrees</h2>
-        @foreach (Entree entree in Menu.Entrees())
-        {
-            <div class="menu-item">
-                <h3 class="name">@entree.ToString()</h3>
-                <div class="price">Price: $@entree.Price</div>
-                <div class="calories">Calories: @entree.Calories</div>
-            </div>
-        }
-        <h2 class="category">Sides</h2>
-        @foreach (Side side in Menu.Sides())
-        {
-            <div class="menu-item">
-                <h3 class="name">@side.ToString()</h3>
-                <div class="price">Small Price: $@side.Price</div>
-                <div class="calories">Small Calories: @side.Calories</div>
-            </div>                        
-        }
-        <h2 class="category">Drinks</h2>
-        @foreach (Drink drink in Menu.Drinks())
-        {
-            <div class="menu-item">
-                <h3 class="name">@drink.ToString()</h3>
-                <div class="price">Price: $@drink.Price</div>
-                <div class="calories">Calories: @drink.Calories</div>
-            </div>
-        }
-    </div>
+@*The listing of the entire menu*@
+<div class="text-center">
+    <h2 class="category">Entrees</h2>
+    @foreach (Entree entree in Menu.Entrees())
+    {
+        <div class="menu-item">
+            <h3 class="name">@entree.ToString()</h3>
+            <div class="price">Price: $@entree.Price</div>
+            <div class="calories">Calories: @entree.Calories</div>
+        </div>
+    }
+    <h2 class="category">Sides</h2>
+    @foreach (Side side in Menu.Sides())
+    {
+        side.Size = Size.Small;
+        <div class="menu-item">
+            <h3 class="name">@side.ToString()</h3>
+            <div class="price">Price: $@side.Price</div>
+            <div class="calories">Calories: @side.Calories</div>
+        </div>
+        side.Size = Size.Medium;
+        <div class="menu-item">
+            <h3 class="name">@side.ToString()</h3>
+            <div class="price"> Price: $@side.Price</div>
+            <div class="calories">Calories: @side.Calories</div>
+        </div>
+        side.Size = Size.Large;
+        <div class="menu-item">
+            <h3 class="name">@side.ToString()</h3>
+            <div class="price">Price: $@side.Price</div>
+            <div class="calories">Calories: @side.Calories</div>
+        </div>
+    }
+    <h2 class="category">Drinks</h2>
+    @foreach (Drink drink in Menu.Drinks())
+    {
+        drink.Size = Size.Small;
+        <div class="menu-item">
+            <h3 class="name">@drink.ToString()</h3>
+            <div class="price">Price: $@drink.Price</div>
+            <div class="calories">Calories: @drink.Calories</div>
+        </div>
+        drink.Size = Size.Medium;
+        <div class="menu-item">
+            <h3 class="name">@drink.ToString()</h3>
+            <div class="price">Price: $@drink.Price</div>
+            <div class="calories">Calories: @drink.Calories</div>
+        </div>
+        drink.Size = Size.Large;
+        <div class="menu-item">
+            <h3 class="name">@drink.ToString()</h3>
+            <div class="price">Price: $@drink.Price</div>
+            <div class="calories">Calories: @drink.Calories</div>
+        </div>
+    }
+</div>
 
 

@@ -1,11 +1,28 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: Menu.cs
+
+* Purpose: A class representing the menu
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace CowboyCafe.Data
 {
+    /// <summary>
+    /// A class representing the menu
+    /// </summary>
     public static class Menu
     {
+        /// <summary>
+        /// Creates a list of all the entrees offered
+        /// </summary>
+        /// <returns>The list of entrees</returns>
         public static IEnumerable<IOrderItem> Entrees()
         {
             List<IOrderItem> entrees = new List<IOrderItem>();
@@ -21,6 +38,10 @@ namespace CowboyCafe.Data
             return entrees;
         }
 
+        /// <summary>
+        /// Creats a list of all the sides offered
+        /// </summary>
+        /// <returns>The list of sides</returns>
         public static IEnumerable<IOrderItem> Sides()
         {
             List<IOrderItem> sides = new List<IOrderItem>();
@@ -33,6 +54,10 @@ namespace CowboyCafe.Data
             return sides;
         }
 
+        /// <summary>
+        /// Creates a list of all the drinks offered
+        /// </summary>
+        /// <returns>The list of drinks</returns>
         public static IEnumerable<IOrderItem> Drinks()
         {
             List<IOrderItem> drinks = new List<IOrderItem>();
@@ -45,6 +70,10 @@ namespace CowboyCafe.Data
             return drinks;
         }
 
+        /// <summary>
+        /// Creates a list of everything on the menu
+        /// </summary>
+        /// <returns>The list of all items</returns>
         public static IEnumerable<IOrderItem> CompleteMenu()
         {
             List<IOrderItem> menu = new List<IOrderItem>();
