@@ -69,3 +69,13 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.menu-item {
+    margin: 5px 0 35px 0;
+}
+
+.category {
+    margin: 50px 400px 10px 400px;
+    background-color: black;
+    color: white;
+}
