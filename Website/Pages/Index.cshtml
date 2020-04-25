@@ -8,8 +8,6 @@ Description: The Home page of the website
     
 *@
 
-
-
 @page
 @model IndexModel
 @using CowboyCafe.Data
@@ -31,61 +29,98 @@ Description: The Home page of the website
     You’ve had a hard ride - so take it easy with us.
 </p>
 
-@*The listing of the entire menu*@
-<div class="text-center">
-    <h2 class="category">Entrees</h2>
-    @foreach (Entree entree in Menu.Entrees())
-    {
-        <div class="menu-item">
-            <h3 class="name">@entree.ToString()</h3>
-            <div class="price">Price: $@entree.Price</div>
-            <div class="calories">Calories: @entree.Calories</div>
-        </div>
-    }
-    <h2 class="category">Sides</h2>
-    @foreach (Side side in Menu.Sides())
-    {
-        side.Size = Size.Small;
-        <div class="menu-item">
-            <h3 class="name">@side.ToString()</h3>
-            <div class="price">Price: $@side.Price</div>
-            <div class="calories">Calories: @side.Calories</div>
-        </div>
-        side.Size = Size.Medium;
-        <div class="menu-item">
-            <h3 class="name">@side.ToString()</h3>
-            <div class="price"> Price: $@side.Price</div>
-            <div class="calories">Calories: @side.Calories</div>
-        </div>
-        side.Size = Size.Large;
-        <div class="menu-item">
-            <h3 class="name">@side.ToString()</h3>
-            <div class="price">Price: $@side.Price</div>
-            <div class="calories">Calories: @side.Calories</div>
-        </div>
-    }
-    <h2 class="category">Drinks</h2>
-    @foreach (Drink drink in Menu.Drinks())
-    {
-        drink.Size = Size.Small;
-        <div class="menu-item">
-            <h3 class="name">@drink.ToString()</h3>
-            <div class="price">Price: $@drink.Price</div>
-            <div class="calories">Calories: @drink.Calories</div>
-        </div>
-        drink.Size = Size.Medium;
-        <div class="menu-item">
-            <h3 class="name">@drink.ToString()</h3>
-            <div class="price">Price: $@drink.Price</div>
-            <div class="calories">Calories: @drink.Calories</div>
-        </div>
-        drink.Size = Size.Large;
-        <div class="menu-item">
-            <h3 class="name">@drink.ToString()</h3>
-            <div class="price">Price: $@drink.Price</div>
-            <div class="calories">Calories: @drink.Calories</div>
-        </div>
-    }
-</div>
+@*Search and Filter section*@
+<form id="Search-and-Filter" method="post">
+    <div class="search">
+        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+        <input type="submit" value="Search" />
+    </div>
+
+    <div id="filters">
+        <h4>Menu Categories</h4>
+        <label>
+            <input type="checkbox" name="Categories" value="Entree" checked="@Model.Categories?.Contains("Entree")" />
+            Entree
+        </label>
+        <label>
+            <input type="checkbox" name="Categories" value="Side" checked="@Model.Categories?.Contains("Side")" />
+            Side
+        </label>
+        <label>
+            <input type="checkbox" name="Categories" value="Drink" checked="@Model.Categories?.Contains("Drink")" />
+            Drink
+        </label>
+
+        <h4>Calories</h4>
+
+
+    </div>
+
+    @*The listing of the entire menu*@
+    <div class="text-center">
+        <h2 class="category">Entrees</h2>
+        @foreach (IOrderItem item in @Model.Items)
+        {
+            if (item is Entree entree)
+            {
+            <div class="menu-item">
+                <h3 class="name">@entree.ToString()</h3>
+                <div class="price">Price: $@entree.Price</div>
+                <div class="calories">Calories: @entree.Calories</div>
+            </div>
+            }
+        }
+        <h2 class="category">Sides</h2>
+        @foreach (IOrderItem item in @Model.Items)
+        {
+            if (item is Side side)
+            {
+                side.Size = Size.Small;
+            <div class="menu-item">
+                <h3 class="name">@side.ToString()</h3>
+                <div class="price">Price: $@side.Price</div>
+                <div class="calories">Calories: @side.Calories</div>
+            </div>
+                side.Size = Size.Medium;
+            <div class="menu-item">
+                <h3 class="name">@side.ToString()</h3>
+                <div class="price"> Price: $@side.Price</div>
+                <div class="calories">Calories: @side.Calories</div>
+            </div>
+                side.Size = Size.Large;
+            <div class="menu-item">
+                <h3 class="name">@side.ToString()</h3>
+                <div class="price">Price: $@side.Price</div>
+                <div class="calories">Calories: @side.Calories</div>
+            </div>
+            }
+        }
+        <h2 class="category">Drinks</h2>
+        @foreach (IOrderItem item in @Model.Items)
+        {
+            if (item is Drink drink)
+            {
+                drink.Size = Size.Small;
+            <div class="menu-item">
+                <h3 class="name">@drink.ToString()</h3>
+                <div class="price">Price: $@drink.Price</div>
+                <div class="calories">Calories: @drink.Calories</div>
+            </div>
+                drink.Size = Size.Medium;
+            <div class="menu-item">
+                <h3 class="name">@drink.ToString()</h3>
+                <div class="price">Price: $@drink.Price</div>
+                <div class="calories">Calories: @drink.Calories</div>
+            </div>
+                drink.Size = Size.Large;
+            <div class="menu-item">
+                <h3 class="name">@drink.ToString()</h3>
+                <div class="price">Price: $@drink.Price</div>
+                <div class="calories">Calories: @drink.Calories</div>
+            </div>
+            }
+        }
+    </div>
+</form>
 
 
