@@ -77,7 +77,46 @@ body {
 }
 
 .category {
-    margin: 50px 400px 10px 400px;
+    margin: 50px 250px 10px 250px;
     background-color: black;
     color: white;
+}
+
+#Entree {
+    margin-top: -33px;
+}
+
+/*Search and Filter styles
+--------------------------------------------------*/
+
+form#searchFilter {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto auto;
+    margin-top: 20px;
+}
+
+#search {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#filters input[type=number] {
+    width: 3rem;
+}
+
+#filters h4 {
+    margin-bottom: 0.2rem;
+}
+
+#results {
+    grid-column-start: 2;
+    grid-column-end: 4;
 }

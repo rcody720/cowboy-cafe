@@ -30,7 +30,7 @@ Description: The Home page of the website
 </p>
 
 @*Search and Filter section*@
-<form id="Search-and-Filter" method="post">
+<form id="searchFilter">
     <div class="search">
         <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
         <input type="submit" value="Search" />
@@ -52,13 +52,25 @@ Description: The Home page of the website
         </label>
 
         <h4>Calories</h4>
+        <div>
+            Between
+            <input name="CaloriesMin" type="number" min="0" max="1000" step="1" placeholder="min" value="@Model.CaloriesMin" />
+            and
+            <input name="CaloriesMax" type="number" min="0" max="1000" step="1" placeholder="max" value="@Model.CaloriesMax" />
+        </div>
 
-
+        <h4>Price</h4>
+        <div>
+            Between
+            <input name="PriceMin" type="number" min="0" max="50" step=".1" placeholder="min" value="@Model.PriceMin" />
+            and
+            <input name="PriceMax" type="number" min="0" max="50" step=".1" placeholder="max" value="@Model.PriceMax" />
+        </div>
     </div>
 
-    @*The listing of the entire menu*@
-    <div class="text-center">
-        <h2 class="category">Entrees</h2>
+    @*The listing of the menu*@
+    <div class="text-center" id="results">
+        <h2 class="category" id="Entree">Entrees</h2>
         @foreach (IOrderItem item in @Model.Items)
         {
             if (item is Entree entree)
@@ -80,19 +92,25 @@ Description: The Home page of the website
                 <h3 class="name">@side.ToString()</h3>
                 <div class="price">Price: $@side.Price</div>
                 <div class="calories">Calories: @side.Calories</div>
-            </div>
+            </div>                
                 side.Size = Size.Medium;
+                if ((side.Price <= Model.PriceMax && side.Price >= Model.PriceMin && side.Calories >= Model.CaloriesMin && side.Calories <= Model.CaloriesMax) || Model.PriceMax == null)
+                {
             <div class="menu-item">
                 <h3 class="name">@side.ToString()</h3>
                 <div class="price"> Price: $@side.Price</div>
                 <div class="calories">Calories: @side.Calories</div>
             </div>
+                }
                 side.Size = Size.Large;
+                if ((side.Price <= Model.PriceMax && side.Price >= Model.PriceMin && side.Calories >= Model.CaloriesMin && side.Calories <= Model.CaloriesMax) || Model.PriceMax == null)
+                {
             <div class="menu-item">
                 <h3 class="name">@side.ToString()</h3>
                 <div class="price">Price: $@side.Price</div>
                 <div class="calories">Calories: @side.Calories</div>
             </div>
+                }
             }
         }
         <h2 class="category">Drinks</h2>
@@ -107,17 +125,23 @@ Description: The Home page of the website
                 <div class="calories">Calories: @drink.Calories</div>
             </div>
                 drink.Size = Size.Medium;
+                if ((drink.Price <= Model.PriceMax && drink.Price >= Model.PriceMin && drink.Calories >= Model.CaloriesMin && drink.Calories <= Model.CaloriesMax)|| Model.PriceMax == null)
+                {
             <div class="menu-item">
                 <h3 class="name">@drink.ToString()</h3>
                 <div class="price">Price: $@drink.Price</div>
                 <div class="calories">Calories: @drink.Calories</div>
             </div>
+                }
                 drink.Size = Size.Large;
+                if ((drink.Price <= Model.PriceMax && drink.Price >= Model.PriceMin && drink.Calories >= Model.CaloriesMin && drink.Calories <= Model.CaloriesMax)|| Model.PriceMax == null)
+                {
             <div class="menu-item">
                 <h3 class="name">@drink.ToString()</h3>
                 <div class="price">Price: $@drink.Price</div>
                 <div class="calories">Calories: @drink.Calories</div>
             </div>
+                }
             }
         }
     </div>

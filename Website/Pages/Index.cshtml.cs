@@ -16,18 +16,16 @@ namespace Website.Pages
         /// <summary>
         /// The items to display on the index page
         /// </summary>
-        public IEnumerable<IOrderItem> Items { get; protected set; }
+        public IEnumerable<IOrderItem> Items { get; protected set; } = Menu.CompleteMenu();
 
         /// <summary>
         /// The current search terms
-        /// </summary>
-        [BindProperty]
+        /// </summary>        
         public string SearchTerms { get; set; }
 
         /// <summary>
         /// The filtered categories
-        /// </summary>
-        [BindProperty]
+        /// </summary>      
         public string[] Categories { get; set; }
 
         /// <summary>
@@ -59,17 +57,18 @@ namespace Website.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public void OnGet(int? caloriesMin, int? caloriesMax, double? priceMin, double? priceMax)
         {
-            Items = Menu.CompleteMenu();
-        }
-
-        public void OnPost()
-        {
-            Items = Menu.Search(Menu.CompleteMenu(), SearchTerms);
-            Items = Menu.FilterByCategory(Menu.CompleteMenu(), Categories);
-            Items = Menu.FilterByCalories(Menu.CompleteMenu(), CaloriesMin, CaloriesMax);
-            Items = Menu.FilterByPrice(Menu.CompleteMenu(), PriceMin, PriceMax);
-        }
+            CaloriesMin = caloriesMin;
+            CaloriesMax = caloriesMax;
+            PriceMin = priceMin;
+            PriceMax = priceMax;
+            SearchTerms = Request.Query["SearchTerms"];
+            Categories = Request.Query["Categories"];
+            Items = Menu.Search(Items, SearchTerms);
+            Items = Menu.FilterByCategory(Items, Categories);
+            Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
+            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
+        }      
     }
 }
