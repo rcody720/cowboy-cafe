@@ -148,7 +148,6 @@ namespace CowboyCafe.Data
         /// </summary>
         /// <param name="items">The menu items</param>
         /// <param name="min">The minimum calories</param>
-        /// <param name="max">The maximum calories</param>
         /// <returns>List of items that match the calories</returns>
         public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, int? min, int? max)
         {

@@ -45,7 +45,7 @@ namespace Website.Pages
         /// </summary>
         [BindProperty]
         public double? PriceMin { get; set; }
-        
+
         /// <summary>
         /// The maximum price
         /// </summary>

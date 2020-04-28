@@ -94,7 +94,10 @@ Description: The Home page of the website
                 <div class="calories">Calories: @side.Calories</div>
             </div>                
                 side.Size = Size.Medium;
-                if ((side.Price <= Model.PriceMax && side.Price >= Model.PriceMin && side.Calories >= Model.CaloriesMin && side.Calories <= Model.CaloriesMax) || Model.PriceMax == null)
+                if ((side.Price <= Model.PriceMax || Model.PriceMax == null) 
+                    && (side.Price >= Model.PriceMin || Model.PriceMin == null) 
+                    && (side.Calories >= Model.CaloriesMin || Model.CaloriesMin == null) 
+                    && (side.Calories <= Model.CaloriesMax || Model.CaloriesMax == null))
                 {
             <div class="menu-item">
                 <h3 class="name">@side.ToString()</h3>
@@ -103,7 +106,10 @@ Description: The Home page of the website
             </div>
                 }
                 side.Size = Size.Large;
-                if ((side.Price <= Model.PriceMax && side.Price >= Model.PriceMin && side.Calories >= Model.CaloriesMin && side.Calories <= Model.CaloriesMax) || Model.PriceMax == null)
+                if ((side.Price <= Model.PriceMax || Model.PriceMax == null) 
+                    && (side.Price >= Model.PriceMin || Model.PriceMin == null) 
+                    && (side.Calories >= Model.CaloriesMin || Model.CaloriesMin == null) 
+                    && (side.Calories <= Model.CaloriesMax || Model.CaloriesMax == null))
                 {
             <div class="menu-item">
                 <h3 class="name">@side.ToString()</h3>
@@ -125,7 +131,10 @@ Description: The Home page of the website
                 <div class="calories">Calories: @drink.Calories</div>
             </div>
                 drink.Size = Size.Medium;
-                if ((drink.Price <= Model.PriceMax && drink.Price >= Model.PriceMin && drink.Calories >= Model.CaloriesMin && drink.Calories <= Model.CaloriesMax)|| Model.PriceMax == null)
+                if ((drink.Price <= Model.PriceMax || Model.PriceMax == null) 
+                    && (drink.Price >= Model.PriceMin || Model.PriceMin == null) 
+                    && (drink.Calories >= Model.CaloriesMin || Model.CaloriesMin == null) 
+                    && (drink.Calories <= Model.CaloriesMax || Model.CaloriesMax == null))
                 {
             <div class="menu-item">
                 <h3 class="name">@drink.ToString()</h3>
@@ -134,7 +143,10 @@ Description: The Home page of the website
             </div>
                 }
                 drink.Size = Size.Large;
-                if ((drink.Price <= Model.PriceMax && drink.Price >= Model.PriceMin && drink.Calories >= Model.CaloriesMin && drink.Calories <= Model.CaloriesMax)|| Model.PriceMax == null)
+                if ((drink.Price <= Model.PriceMax || Model.PriceMax == null) 
+                    && (drink.Price >= Model.PriceMin || Model.PriceMin == null) 
+                    && (drink.Calories >= Model.CaloriesMin || Model.CaloriesMin == null) 
+                    && (drink.Calories <= Model.CaloriesMax || Model.CaloriesMax == null))
                 {
             <div class="menu-item">
                 <h3 class="name">@drink.ToString()</h3>
