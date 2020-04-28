@@ -30,26 +30,22 @@ namespace Website.Pages
 
         /// <summary>
         /// The minimum calories
-        /// </summary>
-        [BindProperty]
+        /// </summary> 
         public int? CaloriesMin { get; set; }
 
         /// <summary>
         /// The maximum calories
         /// </summary>
-        [BindProperty]
         public int? CaloriesMax { get; set; }
 
         /// <summary>
         /// The minimum price
         /// </summary>
-        [BindProperty]
         public double? PriceMin { get; set; }
 
         /// <summary>
         /// The maximum price
         /// </summary>
-        [BindProperty]
         public double? PriceMax { get; set; }
 
         public IndexModel(ILogger<IndexModel> logger)
