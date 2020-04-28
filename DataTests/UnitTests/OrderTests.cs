@@ -12,6 +12,8 @@ namespace CowboyCafe.DataTests
         public double Price { get; set; }
 
         public List<string> SpecialInstructions { get; }
+
+        public uint Calories { get; }
     }
 
     public class OrderTests
