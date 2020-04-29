@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+
+* Author: Cody Reeves
+
+* Class name: MenuTests.cs
+
+* Purpose: Tests for the Menu class
+
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using Xunit;
@@ -7,9 +17,14 @@ using System.Linq;
 
 namespace CowboyCafe.DataTests
 {
+    /// <summary>
+    /// Tests for the Menu class
+    /// </summary>
     public class MenuTests
     {
-
+        /// <summary>
+        /// Entrees method should contain an instance of all the entrees on the menu
+        /// </summary>
         [Fact]
         public void MenuEntreesShouldContainExpectedEntrees()
         {
@@ -25,6 +40,9 @@ namespace CowboyCafe.DataTests
                 );
         }
 
+        /// <summary>
+        /// Sides method should contain an instance of all the sides on the menu
+        /// </summary>
         [Fact]
         public void MenuSidesShouldContainExpectedSides()
         {
@@ -37,6 +55,9 @@ namespace CowboyCafe.DataTests
                 );
         }
 
+        /// <summary>
+        /// Drinks method should contain an instance of all the drinks on the menu
+        /// </summary>
         [Fact]
         public void MenuDrinksShouldContainExpectedDrinks()
         {
@@ -49,6 +70,9 @@ namespace CowboyCafe.DataTests
                 );
         }
 
+        /// <summary>
+        /// Complete menu method should contain an instance of all the items on the menu
+        /// </summary>
         [Fact]
         public void MenuCompleteMenuShouldContainAllMenuItems()
         {
@@ -72,6 +96,9 @@ namespace CowboyCafe.DataTests
                 );
         }
 
+        /// <summary>
+        /// Search method should return the items that contain the searched for terms
+        /// </summary>
         [Fact]
         public void SearchShouldReturnSearchedTerm()
         {
@@ -81,6 +108,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(answer, Menu.Search(items, terms));
         }
 
+        /// <summary>
+        /// Search method should return all items if there are no search terms
+        /// </summary>
         [Fact]
         public void NullSearchShouldReturnCompleteMenu()
         {
@@ -89,6 +119,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(items, Menu.Search(items, terms));
         }
 
+        /// <summary>
+        /// Filter by Category should return the items in the desired category
+        /// </summary>
         [Fact]
         public void FilterByCategoryShouldReturnItemsFromDesiredCategory()
         {
@@ -97,6 +130,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(Menu.Entrees(), Menu.FilterByCategory(items, category));
         }
 
+        /// <summary>
+        /// Filter by Category should return all the items if there is no desired category
+        /// </summary>
         [Fact]
         public void FilterByCategoryShouldReturnAllItemsWhenNull()
         {
@@ -105,6 +141,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(items, Menu.FilterByCategory(items, category));
         }
 
+        /// <summary>
+        /// Filter by Calories should return the items within the desired calorie bounds
+        /// </summary>
         [Fact]
         public void FilterByCaloriesShouldReturnItemsWithDesiredCalories()
         {
@@ -115,6 +154,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(result, Menu.FilterByCalories(items, min, max));
         }
 
+        /// <summary>
+        /// Filter by Calories should return the items above the minimum calories entered
+        /// </summary>
         [Fact]
         public void FilterByCaloriesWithOnlyMinShouldReturnItemsWithDesiredCalories()
         {
@@ -124,6 +166,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(result, Menu.FilterByCalories(items, min, null));
         }
 
+        /// <summary>
+        /// Filter by Calories should return the items below the maximum calories entered
+        /// </summary>
         [Fact]
         public void FilterByCaloriesWithOnlyMaxShouldReturnItemsWithDesiredCalories()
         {
@@ -133,6 +178,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(result, Menu.FilterByCalories(items, null, max));
         }
 
+        /// <summary>
+        /// Filter by Calories should return all the items when no calorie bounds are entered
+        /// </summary>
         [Fact]
         public void FilterByCaloriesShouldReturnAllItemsWhenNull()
         {
@@ -140,8 +188,11 @@ namespace CowboyCafe.DataTests
             Assert.Equal(items, Menu.FilterByCalories(items, null, null));
         }
 
+        /// <summary>
+        /// Filter by Price should return the items within the entered price bounds
+        /// </summary>
         [Fact]
-        public void FilterByPriceShouldReturnItemsWithDesiredCalories()
+        public void FilterByPriceShouldReturnItemsWithDesiredPrice()
         {
             var items = Menu.CompleteMenu();
             var min = 7;
@@ -150,8 +201,11 @@ namespace CowboyCafe.DataTests
             Assert.Equal(result, Menu.FilterByPrice(items, min, max));
         }
 
+        /// <summary>
+        /// Filter by Price should return the items above the minimum price entered
+        /// </summary>
         [Fact]
-        public void FilterByPriceWithOnlyMinShouldReturnItemsWithDesiredCalories()
+        public void FilterByPriceWithOnlyMinShouldReturnItemsWithDesiredPrice()
         {
             var items = Menu.CompleteMenu();
             var min = 7;
@@ -159,8 +213,11 @@ namespace CowboyCafe.DataTests
             Assert.Equal(result, Menu.FilterByPrice(items, min, null));
         }
 
+        /// <summary>
+        /// Filter by Price should return the items below the maximum price entered 
+        /// </summary>
         [Fact]
-        public void FilterByPriceWithOnlyMaxShouldReturnItemsWithDesiredCalories()
+        public void FilterByPriceWithOnlyMaxShouldReturnItemsWithDesiredPrice()
         {
             var items = Menu.CompleteMenu();
             var max = .5;
@@ -168,6 +225,9 @@ namespace CowboyCafe.DataTests
             Assert.Equal(result, Menu.FilterByPrice(items, null, max));
         }
 
+        /// <summary>
+        /// Filter by Price should return all the items when no price bounds are entered
+        /// </summary>
         [Fact]
         public void FilterByPriceShouldReturnAllItemsWhenNull()
         {
