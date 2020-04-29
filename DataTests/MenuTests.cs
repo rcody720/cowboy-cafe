@@ -14,6 +14,8 @@ using System.Text;
 using Xunit;
 using CowboyCafe.Data;
 using System.Linq;
+using NUnit.Framework;
+using Assert = Xunit.Assert;
 
 namespace CowboyCafe.DataTests
 {
@@ -101,11 +103,11 @@ namespace CowboyCafe.DataTests
         /// </summary>
         [Fact]
         public void SearchShouldReturnSearchedTerm()
-        {
-            var terms = "Chicken";
-            var items = Menu.CompleteMenu();
-            var answer = new List<IOrderItem>() { new AngryChicken() };
-            Assert.Equal(answer, Menu.Search(items, terms));
+        {      
+            Assert.Collection(
+                Menu.Search(Menu.CompleteMenu(), "Chicken"),
+                (ac) => { Assert.IsType<AngryChicken>(ac); }
+                );
         }
 
         /// <summary>
@@ -114,9 +116,24 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void NullSearchShouldReturnCompleteMenu()
         {
-            string terms = null;
-            var items = Menu.CompleteMenu();
-            Assert.Equal(items, Menu.Search(items, terms));
+            Assert.Collection(
+                Menu.Search(Menu.CompleteMenu(), null),
+                (ac) => { Assert.IsType<AngryChicken>(ac); },
+                (cc) => { Assert.IsType<CowpokeChili>(cc); },
+                (ddb) => { Assert.IsType<DakotaDoubleBurger>(ddb); },
+                (ppp) => { Assert.IsType<PecosPulledPork>(ppp); },
+                (rr) => { Assert.IsType<RustlersRibs>(rr); },
+                (ttb) => { Assert.IsType<TexasTripleBurger>(ttb); },
+                (tb) => { Assert.IsType<TrailBurger>(tb); },
+                (bb) => { Assert.IsType<BakedBeans>(bb); },
+                (ccf) => { Assert.IsType<ChiliCheeseFries>(ccf); },
+                (cd) => { Assert.IsType<CornDodgers>(cd); },
+                (pdc) => { Assert.IsType<PanDeCampo>(pdc); },
+                (cc) => { Assert.IsType<CowboyCoffee>(cc); },
+                (js) => { Assert.IsType<JerkedSoda>(js); },
+                (tt) => { Assert.IsType<TexasTea>(tt); },
+                (w) => { Assert.IsType<Water>(w); }
+                );
         }
 
         /// <summary>
@@ -125,9 +142,17 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByCategoryShouldReturnItemsFromDesiredCategory()
         {
-            var category = new List<string>() { "Entree" };
-            var items = Menu.CompleteMenu();
-            Assert.Equal(Menu.Entrees(), Menu.FilterByCategory(items, category));
+            var category = new List<string>() { "Entree" };            
+            Assert.Collection(
+                Menu.FilterByCategory(Menu.CompleteMenu(), category),
+                (ac) => { Assert.IsType<AngryChicken>(ac); },
+                (cc) => { Assert.IsType<CowpokeChili>(cc); },
+                (ddb) => { Assert.IsType<DakotaDoubleBurger>(ddb); },
+                (ppp) => { Assert.IsType<PecosPulledPork>(ppp); },
+                (rr) => { Assert.IsType<RustlersRibs>(rr); },
+                (ttb) => { Assert.IsType<TexasTripleBurger>(ttb); },
+                (tb) => { Assert.IsType<TrailBurger>(tb); }
+                );
         }
 
         /// <summary>
@@ -147,11 +172,10 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByCaloriesShouldReturnItemsWithDesiredCalories()
         {
-            var items = Menu.CompleteMenu();
-            var min = 10;
-            var max = 100;
-            var result = new List<IOrderItem>() { new TexasTea() };
-            Assert.Equal(result, Menu.FilterByCalories(items, min, max));
+            Assert.Collection(
+                Menu.FilterByCalories(Menu.CompleteMenu(), 10, 100),
+                (tt) => { Assert.IsType<TexasTea>(tt); }
+                );
         }
 
         /// <summary>
@@ -160,10 +184,10 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByCaloriesWithOnlyMinShouldReturnItemsWithDesiredCalories()
         {
-            var items = Menu.CompleteMenu();
-            var min = 800;
-            var result = new List<IOrderItem>() { new RustlersRibs() };
-            Assert.Equal(result, Menu.FilterByCalories(items, min, null));
+            Assert.Collection(
+                Menu.FilterByCalories(Menu.CompleteMenu(), 800, null),
+                (rr) => { Assert.IsType<RustlersRibs>(rr); }
+                );
         }
 
         /// <summary>
@@ -172,10 +196,10 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByCaloriesWithOnlyMaxShouldReturnItemsWithDesiredCalories()
         {
-            var items = Menu.CompleteMenu();
-            var max = 0;
-            var result = new List<IOrderItem>() { new Water() };
-            Assert.Equal(result, Menu.FilterByCalories(items, null, max));
+            Assert.Collection(
+                Menu.FilterByCalories(Menu.CompleteMenu(), null, 0),
+                (w) => { Assert.IsType<Water>(w); }
+                );
         }
 
         /// <summary>
@@ -194,11 +218,10 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByPriceShouldReturnItemsWithDesiredPrice()
         {
-            var items = Menu.CompleteMenu();
-            var min = 7;
-            var max = 8;
-            var result = new List<IOrderItem>() { new RustlersRibs() };
-            Assert.Equal(result, Menu.FilterByPrice(items, min, max));
+            Assert.Collection(
+                Menu.FilterByPrice(Menu.CompleteMenu(), 7, 8),
+                (rr) => { Assert.IsType<RustlersRibs>(rr); }
+                );
         }
 
         /// <summary>
@@ -207,10 +230,10 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByPriceWithOnlyMinShouldReturnItemsWithDesiredPrice()
         {
-            var items = Menu.CompleteMenu();
-            var min = 7;
-            var result = new List<IOrderItem>() { new RustlersRibs() };
-            Assert.Equal(result, Menu.FilterByPrice(items, min, null));
+            Assert.Collection(
+                Menu.FilterByPrice(Menu.CompleteMenu(), 7, null),
+                (rr) => { Assert.IsType<RustlersRibs>(rr); }
+                );
         }
 
         /// <summary>
@@ -219,10 +242,10 @@ namespace CowboyCafe.DataTests
         [Fact]
         public void FilterByPriceWithOnlyMaxShouldReturnItemsWithDesiredPrice()
         {
-            var items = Menu.CompleteMenu();
-            var max = .5;
-            var result = new List<IOrderItem>() { new Water() };
-            Assert.Equal(result, Menu.FilterByPrice(items, null, max));
+            Assert.Collection(
+                Menu.FilterByPrice(Menu.CompleteMenu(), null, .5),
+                (w) => { Assert.IsType<Water>(w); }
+                );
         }
 
         /// <summary>
