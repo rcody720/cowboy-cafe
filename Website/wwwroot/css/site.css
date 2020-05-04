@@ -73,18 +73,18 @@ body {
 /*Menu on home page styles
 --------------------------------------------------*/
 .menu-item {
-    margin: 5px 0 35px 0;
+    margin: 5px 70px 35px 0;
 }
 
 .category {
-    margin: 50px 250px 10px 250px;
+    margin-right: 50px;
+    padding: 0 40px;
     background-color: black;
     color: white;
+    text-align: center;
 }
 
-#Entree {
-    margin-top: -33px;
-}
+
 
 /*Search and Filter styles
 --------------------------------------------------*/
@@ -99,6 +99,7 @@ form#searchFilter {
 #search {
     grid-column-start: 1;
     grid-column-end: 2;
+    margin-right: 20px;
 }
 
 #filters {
@@ -116,7 +117,28 @@ form#searchFilter {
     margin-bottom: 0.2rem;
 }
 
-#results {
+.results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
     grid-column-start: 2;
     grid-column-end: 4;
+    margin-top: -33px;
+}
+
+.Flavors{
+    margin-top: 40px;
+}
+
+/*Responsive styles
+--------------------------------------------------*/
+@media (max-width: 490px){
+    .results {
+        flex-direction: column;
+        margin-top: 20px;
+    }
+    form#searchFilter{
+        display: initial;
+    }    
 }
