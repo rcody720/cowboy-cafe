@@ -61,17 +61,6 @@ namespace Website.Pages
 
         public void OnGet()
         {
-            //CaloriesMin = caloriesMin;
-            //CaloriesMax = caloriesMax;
-            //PriceMin = priceMin;
-            //PriceMax = priceMax;
-            //SearchTerms = Request.Query["SearchTerms"];
-            //Categories = Request.Query["Categories"];
-            //Items = Menu.Search(Items, SearchTerms);
-            //Items = Menu.FilterByCategory(Items, Categories);
-            //Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
-            //Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
-
             Items = Menu.CompleteMenu();
             //Search for items by the SearchTerms
             if (SearchTerms != null)
