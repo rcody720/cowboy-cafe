@@ -73,16 +73,19 @@ namespace Website.Pages
             //Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
 
             Items = Menu.CompleteMenu();
+            //Search for items by the SearchTerms
             if (SearchTerms != null)
             {
                 Items = Items.Where(item => item.ToString() != null && item.ToString().Contains(SearchTerms, StringComparison.CurrentCultureIgnoreCase));
             }
 
+            //Filter by Category
             if(Categories != null && Categories.Length != 0)
             {
                 Items = Items.Where(item => Categories.Contains(item.GetType().BaseType.Name));
             }
 
+            //Filter by Calories
             if (CaloriesMin == null && CaloriesMax != null)
             {
                 Items = Items.Where(item => item.Calories <= CaloriesMax);
@@ -97,6 +100,23 @@ namespace Website.Pages
             {
 
                 Items = Items.Where(item => item.Calories >= CaloriesMin && item.Calories <= CaloriesMax);
+            }
+
+            //Filter by Price
+            if (PriceMin == null && PriceMax != null)
+            {
+                Items = Items.Where(item => item.Price <= PriceMax);
+            }
+
+            if (PriceMax == null && PriceMin != null)
+            {
+                Items = Items.Where(item => item.Price >= PriceMin);
+            }
+
+            if (PriceMax != null && PriceMin != null)
+            {
+
+                Items = Items.Where(item => item.Price >= PriceMin && item.Price <= PriceMax);
             }
         }      
     }
